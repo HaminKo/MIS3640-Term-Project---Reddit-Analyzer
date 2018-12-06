@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Parameters{% endblock %}</h1>
+    <form action="{{ url_for('analyze.handle_data') }}" method="post">
+        Subreddit: <input type="text" name="subreddit" value="politics">
+        Sort: <select name="sort">
+            <option value="hot">Hot</option>
+            <option value="new">New</option>
+            <option value="controverisal">Controversial</option>
+            <option value="top">Top</option>
+            <option value="rising">Rising</option>
+            <option value="gilded">Gilded</option>
+        </select>
+        Time Period: <select name="time_period">
+            <option value="all">All</option>
+            <option value="year">Year</option>
+            <option value="month">Month</option>
+            <option value="week">Week</option>
+            <option value="day">Day</option>
+            <option value="hour">Hour</option>
+        </select>
+        Limit: <input type="text" name="limit" value="1000">
+        <br><br>
+        <input type="submit">
+    </form>
+{% endblock %}
+

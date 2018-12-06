@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Analysis{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <h2>Heatmap</h2>
+    <img src="{{url_for('static', filename='./graphs/heatmap_day_hour.png')}}" />
+    
+    <h2>Wordcloud</h2>
+    <img src="{{url_for('static', filename='./graphs/wordcloud.png')}}" />
+
+    <h2>Scatterplots</h2>
+    <img src="{{url_for('static', filename='./graphs/scatterplot_score_vs_number.png')}}" />
+    <img src="{{url_for('static', filename='./graphs/scatterplot_score_vs_compound.png')}}" />
+    <img src="{{url_for('static', filename='./graphs/scatterplot_score_vs_negative.png')}}" />
+    <img src="{{url_for('static', filename='./graphs/scatterplot_score_vs_neutral.png')}}" />
+    <img src="{{url_for('static', filename='./graphs/scatterplot_score_vs_positive.png')}}" />
+
+    <h2>Line Charts</h2>
+    <img src="{{url_for('static', filename='./graphs/line_num_comments_desc.png')}}" />
+    <img src="{{url_for('static', filename='./graphs/line_score_desc.png')}}" />
+
+    <h2>Histogram</h2>
+    <img src="{{url_for('static', filename='./graphs/histogram_num_comments.png')}}" />
+    <img src="{{url_for('static', filename='./graphs/histogram_score.png')}}" />
+{% endblock %}
