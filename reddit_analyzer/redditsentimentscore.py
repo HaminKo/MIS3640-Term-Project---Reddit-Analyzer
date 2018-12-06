@@ -13,7 +13,6 @@ import numpy as np
 import datetime as dt
 import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer as SIA
-# from google.cloud import language
 
 def save_file(data, filename):
     """
@@ -39,25 +38,6 @@ def convert_created(df):
         return dt.datetime.fromtimestamp(created_utc)
 
     df['created_utc'] = df['created_utc'].apply(get_date)
-
-# def google_sentiment(text):
-#     """
-#     Analysis can be done using the google sentiment
-
-#     Analyzes a lines of text and returns two values: a score from -1 to 1 indicating polarity, and a magnitutde that explaines extent of sentiment.
-#     """
-#     path = config.google_service_account
-#     client = language.LanguageServiceClient.from_service_account_json(path)
-#     document = language.types.Document(content=text, type=language.enums.Document.Type.PLAIN_TEXT)
-#     annotations = client.analyze_sentiment(document=document)
-#     score = annotations.document_sentiment.score
-#     magnitude = annotations.document_sentiment.magnitude
-#     return score, magnitude
-
-# def append_google_sentiment(df, text_col_name):
-#     gc_results = [google_sentiment(row) for row in df[text_col_name]]
-#     gc_score, gc_magnitude = zip(*gc_results) # Unpacking the result into 2 lists
-#     print(gc_score)
 
 def nltk_sentiment(text):
     pol_score = SIA().polarity_scores(text)

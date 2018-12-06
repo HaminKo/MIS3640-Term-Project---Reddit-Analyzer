@@ -14,16 +14,16 @@ Reddit PRAW guide
 
 ## Instructions:
 Linuxs/mac:
-export FLASK_APP=flaskr
+export FLASK_APP=reddit_analyzer
 export FLASK_ENV=development
 flask run
 
 Windows cmd:
-set FLASK_APP=flaskr
+set FLASK_APP=reddit_analyzer
 set FLASK_ENV=development
 flask run
 
 Windows powershell:
-$env:FLASK_APP = "flaskr"
+$env:FLASK_APP = "reddit_analyzer"
 $env:FLASK_ENV = "development"
 flask run

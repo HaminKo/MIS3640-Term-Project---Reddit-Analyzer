@@ -8,12 +8,28 @@
 import praw
 import pandas as pd
 from reddit_analyzer import config
+from dotenv import load_dotenv
+load_dotenv()
 
-reddit = praw.Reddit(client_id=config.client_id,
-                     client_secret=config.client_secret,
-                     username=config.username,
-                     password=config.password,
-                     user_agent=config.user_agent)
+import os
+
+# print(os.getenv('client_id'))
+# print(os.getenv('client_secret'))
+# print(os.getenv('username'))
+# print(os.getenv('password'))
+# print(os.getenv('user_agent'))
+
+# reddit = praw.Reddit(client_id=config.client_id,
+#                      client_secret=config.client_secret,
+#                      username=config.username,
+#                      password=config.password,
+#                      user_agent=config.user_agent)
+
+reddit = praw.Reddit(client_id=os.getenv('client_id'),
+                     client_secret=os.getenv('client_secret'),
+                     username=os.getenv('reddit_username'),
+                     password=os.getenv('reddit_password'),
+                     user_agent=os.getenv('user_agent'))
 
 def save_file(data, filename):
     """
@@ -94,13 +110,13 @@ def main():
     """
     Only used for testing.
     """
-    sub = 'askreddit'
+    # sub = 'askreddit'
     # submissions = reddit.subreddit(sub).top('all', limit=500)
     # comments = reddit.subreddit(sub).comments(limit=25)
     # print([(comment.body) for comment in comments])
     # top5 = [(submission.title, submission.selftext, submission.id, submission.num_comments) for submission in submissions]
     # print(top5[0])
-    data = scrape_subreddits('politics', sort='hot', time_period='all', limit=1000)
+    # data = scrape_subreddits('politics', sort='hot', time_period='all', limit=1000)
     save_file(data, "politics.csv")
 
 if __name__ == '__main__':
