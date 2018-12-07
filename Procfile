@@ -1,1 +1,1 @@
-web: gunicorn reddit_analyzer:create_app()
+web: gunicorn reddit_analyzer:"create_app()"
