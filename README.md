@@ -1,6 +1,9 @@
 # MIS3640-Term-Project---Reddit-Analyzer
 MIS3640 Term Project
 
+demo site:
+https://reddit-analyzer-api-heroku.herokuapp.com/analysis
+
 ## Table of Contents
 
 ## Dependencies
@@ -27,3 +30,9 @@ Windows powershell:
 $env:FLASK_APP = "reddit_analyzer"
 $env:FLASK_ENV = "development"
 flask run
+
+## Deploying on Heroku:
+pip freeze > requirements.txt
+
+## Create virtual environemtn
+pip install -r requirements.txt
