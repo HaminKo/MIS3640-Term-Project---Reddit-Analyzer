@@ -4,7 +4,7 @@ This file analyzes and graphs the data from redditsentimentscore.py file
 Will also use matplotlib for graphs as the standard pandas/numpy package.
 """
 
-from reddit_analyzer import config
+# from reddit_analyzer import config
 import pandas as pd
 import numpy as np
 import datetime as dt

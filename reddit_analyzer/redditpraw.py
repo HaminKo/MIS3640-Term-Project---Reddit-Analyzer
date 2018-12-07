@@ -7,7 +7,7 @@
 
 import praw
 import pandas as pd
-from reddit_analyzer import config
+# from reddit_analyzer import config
 from dotenv import load_dotenv
 load_dotenv()
 

@@ -6,7 +6,7 @@ This file will parse and analyze the text using sentiment analysis.
 Implement google one when I have time later
 """
 
-from reddit_analyzer import config
+# from reddit_analyzer import config
 from reddit_analyzer import redditpraw
 import pandas as pd
 import numpy as np
