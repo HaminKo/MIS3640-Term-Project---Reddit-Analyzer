@@ -7,7 +7,6 @@
 
 import praw
 import pandas as pd
-# from reddit_analyzer import config
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -53,6 +52,7 @@ def scrape_subreddits(subreddit, sort='top', time_period='all', limit=None):
     """
     sub = subreddit
 
+    # Dictionary of sorting options as indicated by PRAW documentations.
     sort_by = {
         'gilded': reddit.subreddit(sub).gilded(limit=limit),
         'hot': reddit.subreddit(sub).hot(limit=limit),
@@ -62,8 +62,10 @@ def scrape_subreddits(subreddit, sort='top', time_period='all', limit=None):
         'rising':  reddit.subreddit(sub).rising(limit=limit)
     }
 
+    # Picks sorting option based on function argument.
     submissions = sort_by.get(sort)
 
+    # Create dictionary of data to download.
     data = {
         'title': [],
         'subreddit': [],
@@ -75,7 +77,8 @@ def scrape_subreddits(subreddit, sort='top', time_period='all', limit=None):
         'selftext': [],
         'over_18': []
     }
-    
+
+    # Append downloaded data to dictionary
     for submission in submissions:
         if 'Megathread' not in submission.title:
             data['title'].append(submission.title)
@@ -87,7 +90,8 @@ def scrape_subreddits(subreddit, sort='top', time_period='all', limit=None):
             data['created_utc'].append(submission.created_utc)
             data['selftext'].append(submission.selftext)
             data['over_18'].append(submission.over_18)
-        
+
+    # transform dictioanry to pandas dataframe
     df = pd.DataFrame(data)
 
     return df
@@ -117,7 +121,8 @@ def main():
     # top5 = [(submission.title, submission.selftext, submission.id, submission.num_comments) for submission in submissions]
     # print(top5[0])
     # data = scrape_subreddits('politics', sort='hot', time_period='all', limit=1000)
-    save_file(data, "politics.csv")
+    # save_file(data, "politics.csv")
+    pass
 
 if __name__ == '__main__':
     main()

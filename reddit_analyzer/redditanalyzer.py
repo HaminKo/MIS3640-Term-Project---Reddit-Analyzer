@@ -4,7 +4,6 @@ This file analyzes and graphs the data from redditsentimentscore.py file
 Will also use matplotlib for graphs as the standard pandas/numpy package.
 """
 
-# from reddit_analyzer import config
 import pandas as pd
 import numpy as np
 import datetime as dt
@@ -27,7 +26,7 @@ def save_file(data, filename):
 
 def load_data(filename):
     """
-    Load a csv.file
+    Load a .csv file
     """
     return pd.read_csv(filename)
 
@@ -151,6 +150,9 @@ def compare_two_subreddits():
     pass
 
 def create_graphs(data):
+    """
+    Creates graphs based on reddit data.
+    """
     df = pd.read_csv(data)
     extract_time_info(df)
     graph_scatterplots(df)
