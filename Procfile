@@ -1,1 +1,1 @@
-web: gunicorn app:reddit_analyzer
+web: gunicorn reddit_analyzer:app
