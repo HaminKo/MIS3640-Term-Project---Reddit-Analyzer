@@ -2,7 +2,7 @@
 
 {% block header %}
     <h1>{% block title %}Parameters{% endblock %}</h1>
-    <form action="{{ url_for('analyze.handle_data') }}" method="post">
+    <form action="{{ url_for('analyze.download_data') }}" method="post">
         Subreddit: <input type="text" name="subreddit" value="politics">
         Sort: <select name="sort">
             <option value="hot">Hot</option>
