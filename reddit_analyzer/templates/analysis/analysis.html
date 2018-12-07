@@ -1,10 +1,8 @@
 {% extends 'base.html' %}
 
-{% block header %}
-    <h1>{% block title %}Analysis{% endblock %}</h1>
-{% endblock %}
-
 {% block content %}
+    <h1>{% block title %}Analysis{% endblock %}</h1>
+    <br>
     <h2>Heatmap</h2>
     <img src="{{url_for('static', filename='./graphs/heatmap_day_hour.png')}}" />
     

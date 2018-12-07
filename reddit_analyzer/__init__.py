@@ -12,11 +12,13 @@ in Procfile
 import os
 
 from flask import Flask
+from flask_bootstrap import Bootstrap
 
 def create_app():
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
-
+    Bootstrap(app)
+    
     # Used to prevent cached image
     app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
