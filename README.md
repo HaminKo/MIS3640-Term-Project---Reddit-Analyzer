@@ -6,16 +6,48 @@ https://reddit-analyzer-api-heroku.herokuapp.com/analysis
 
 ## Table of Contents
 
-## Dependencies
+- [Dependencies](#Dependencies)
+- [Installation Guide](#Installation)
+- [Setup Instructions](#Setup)
+- [Application Instructions](#Application)
+- [Heroku Setup Guide](#Heroku)
 
-## Install:
+## <a name="Dependencies">Installation Guide</a>
 
-## Config file:
-https://www.pingshiuanchua.com/blog/post/quick-guide-google-cloud-authentication-on-python
+### Dependencies
+Make sure to install the following:
 
-Reddit PRAW guide
+For the app itself:
 
-## Instructions:
+- flask
+- flask_bootstrap 
+- dotenv
+- praw
+- pandas
+- numpy
+- nltk
+- sentiment.vader from nltk
+- matplotlib
+- seaborn
+- wordcloud
+
+For heroku:
+
+- gunicorn
+
+## <a name="Installation">Instructions</a>
+
+### Set the following environment variables:
+
+client_id='example'
+client_secret='example'
+reddit_username='example'
+reddit_password='example'
+user_agent='example'
+
+### To Run the application locally:
+Make sure you are in the main folder:
+
 Linuxs/mac:
 export FLASK_APP=reddit_analyzer
 export FLASK_ENV=development
@@ -31,8 +63,20 @@ $env:FLASK_APP = "reddit_analyzer"
 $env:FLASK_ENV = "development"
 flask run
 
-## Deploying on Heroku:
+## <a name="Application">Application instructions</a>
+
+Once you have the application up and running, you can start analyzing subreddits.
+
+On the main page, you can set up several search parameters for gathering data from reddit.
+
+Once you click submit, the application will scrape, analyze, and create graphs of the subreddit. This process takes around 30 seconds to 1 minute.
+
+After the analysis is complete, you will be redirected to the page with the analysis.
+
+You can also click on the analysis tab at the top in order to see a sample output for a dataset that is already included.
+
+### Project Demo
+
+## <a name="Heroku">Deploying on Heroku</a>
 pip freeze > requirements.txt
 
-## Create virtual environemtn
-pip install -r requirements.txt

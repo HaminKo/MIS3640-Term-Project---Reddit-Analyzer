@@ -82,6 +82,7 @@ def graph_lines(df):
     fig, ax1 = plt.subplots()
     x = np.arange(1, len(df.index) + 1)
     ax1.plot(x, df2['score'])
+    ax1.set_title('Scores Sorted from Most to Least')
     fig.savefig(path + 'line_score_desc.png', bbox_inches='tight', format='png')
 
     df2 = df.sort_values(by=['num_comments'], ascending=False)
@@ -89,6 +90,7 @@ def graph_lines(df):
     fig, ax1 = plt.subplots()
     x = np.arange(1, len(df.index) + 1)
     ax1.plot(x, df2['num_comments'])
+    ax1.set_title('Number of Comments from Most to Least')
     fig.savefig(path + 'line_num_comments_desc.png', bbox_inches='tight', format='png')
 
 
@@ -100,10 +102,12 @@ def graph_histograms(df):
 
     fig, ax = plt.subplots()
     ax.hist(df['score'])
+    ax.set_title('Distribution of Scores')
     fig.savefig(path + 'histogram_score.png', bbox_inches='tight', format='png')
 
     fig, ax = plt.subplots()
     ax.hist(df['num_comments'])
+    ax.set_title('Distribution of Comments')
     fig.savefig(path + 'histogram_num_comments.png', bbox_inches='tight', format='png')
 
 def graph_wordcloud(df):
@@ -121,6 +125,7 @@ def graph_wordcloud(df):
 
     ax1.imshow(wordcloud, interpolation='bilinear')
     ax1.axis("off")
+    ax1.set_title('Top 100 words in Subreddit')
     fig.savefig(path + 'wordcloud.png', bbox_inches='tight', format='png')
 
 def graph_heatmaps(df):
@@ -133,7 +138,14 @@ def graph_heatmaps(df):
     heat_day_hour = df.pivot_table(values="score", index=["day"], columns=["hour"], aggfunc=np.mean)
     fig, ax = plt.subplots()
     ax = sns.heatmap(heat_day_hour ,cmap="YlGnBu")
-    fig.savefig(path + 'heatmap_day_hour.png', bbox_inches='tight', format='png')
+    ax.set_title('Time When Submissions Get Upvotes')
+    fig.savefig(path + 'heatmap_score__day_hour.png', bbox_inches='tight', format='png')
+
+    heat_day_hour = df.pivot_table(values="num_comments", index=["day"], columns=["hour"], aggfunc=np.mean)
+    fig, ax = plt.subplots()
+    ax = sns.heatmap(heat_day_hour ,cmap="YlGnBu")
+    ax.set_title('Time When Submissions Get Comments')
+    fig.savefig(path + 'heatmap_num_comments_day_hour.png', bbox_inches='tight', format='png')
 
     # heat_month = df.pivot_table(values="score", index=["month"], columns=["hour"], aggfunc=np.mean)
     # fig, ax = plt.subplots()

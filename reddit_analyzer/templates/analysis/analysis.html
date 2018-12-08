@@ -4,7 +4,8 @@
     <h1>{% block title %}Analysis{% endblock %}</h1>
     <br>
     <h2>Heatmap</h2>
-    <img src="{{url_for('static', filename='./graphs/heatmap_day_hour.png')}}" />
+    <img src="{{url_for('static', filename='./graphs/heatmap_score_day_hour.png')}}" />
+    <img src="{{url_for('static', filename='./graphs/heatmap_num_comments_day_hour.png')}}" />
     
     <h2>Wordcloud</h2>
     <img src="{{url_for('static', filename='./graphs/wordcloud.png')}}" />
