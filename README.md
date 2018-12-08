@@ -73,15 +73,15 @@ Once you have the application up and running, you can start analyzing subreddits
 
 On the main page, you can set up several search parameters for gathering data from reddit.
 
-![](images/Main_page_2.png)
+![](images/Main_page_2.PNG)
 
 Once you click submit, the application will scrape, analyze, and create graphs of the subreddit. This process takes around 30 seconds to 1 minute.
 
 After the analysis is complete, you will be redirected to the page with the analysis. Here is a sample output:
 
-![](images/analysis_heatmap.png)
-![](images/analysis_wordmap.png)
-![](images/analysis_scatterplot.png)
+![](images/analysis_heatmap.PNG)
+![](images/analysis_wordmap.PNG)
+![](images/analysis_scatterplot.PNG)
 
 You can also click on the analysis tab at the top in order to see a sample output for a dataset that is already included.
 
